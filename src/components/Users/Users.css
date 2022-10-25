@@ -1,0 +1,59 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 100%;
+  place-items: center;
+  align-items: flex-start;
+  height: 100vh;
+  width: 100vw;
+}
+
+.titleText {
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.cardFlex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 2rem;
+}
+
+.cardWrap {
+  width: 18rem;
+  height: 13rem;
+  display: flex;
+  background: #fff;
+  border: 1px solid #dedddd;
+  border-radius: 9px;
+  margin-bottom: 1.5rem;
+}
+
+.bar {
+  width: 0.75rem;
+  height: 100%;
+  background: #271871;
+  border-radius: 10px 0px 0px 10px;
+}
+
+.card {
+  width: 100%;
+  padding: 0.75rem 1rem;
+}
+
+.cardImage {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  background-color: #dedddd;
+}
+
+.cardTexts {
+  margin-top: 0.75rem;
+}
+
+.text {
+  font-size: 14px;
+  line-height: 1.2rem;
+}
