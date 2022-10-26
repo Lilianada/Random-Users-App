@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./Users.css";
 import Header from "../Header/Header";
 import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
-import useFetch from "../../useFetch";
 import axios from "axios";
 
 export default function DisplayUsers() {
@@ -15,21 +14,6 @@ export default function DisplayUsers() {
   const url = "https://randomuser.me/api/"
 
   const handleClick = () => {
-    // useEffect (() => {
-    // axios.get(url).then((response) => {
-    //   setData(response.data.results);
-    //   console.log(response.data.results)
-    //   setLoading(true);
-    // }).catch((err) => {
-    //   setError(err);
-    //   setLoading(true);
-    // }).finally(() => {
-    //     setLoading(false);
-    //     setActiveUser(true);
-    //   })
-    // }, [url]);  
-  }
-  useEffect(() => {
     axios.get(url).then((response) => {
       setData(response.data.results);
       console.log(response.data.results)
@@ -38,10 +22,10 @@ export default function DisplayUsers() {
       setError(err);
       setLoading(true);
     }).finally(() => {
-      setLoading(false);
-      setActiveUser(true);
-    })
-  }, [url]);
+        setLoading(false);
+        setActiveUser(true);
+      })
+  }
   if (error) return <div>Error: {error.message}</div>
   // console.log(data)
 
