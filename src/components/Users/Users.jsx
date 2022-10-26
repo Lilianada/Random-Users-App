@@ -3,12 +3,47 @@ import "./Users.css";
 import Header from "../Header/Header";
 import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 import useFetch from "../../useFetch";
+import axios from "axios";
 
 export default function DisplayUsers() {
-  
-  const {data, loading, error} = useFetch("https://randomuser.me/api/");
-  if (loading) return <p>Loading... please wait</p>
+  const [activeUser, setActiveUser] = useState(false);
+  const [activeLink, setActiveLink] = useState(0);
+  const [data, setData] = useState([]);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const url = "https://randomuser.me/api/"
+
+  const handleClick = () => {
+    // useEffect (() => {
+    // axios.get(url).then((response) => {
+    //   setData(response.data.results);
+    //   console.log(response.data.results)
+    //   setLoading(true);
+    // }).catch((err) => {
+    //   setError(err);
+    //   setLoading(true);
+    // }).finally(() => {
+    //     setLoading(false);
+    //     setActiveUser(true);
+    //   })
+    // }, [url]);  
+  }
+  useEffect(() => {
+    axios.get(url).then((response) => {
+      setData(response.data.results);
+      console.log(response.data.results)
+      setLoading(true);
+    }).catch((err) => {
+      setError(err);
+      setLoading(true);
+    }).finally(() => {
+      setLoading(false);
+      setActiveUser(true);
+    })
+  }, [url]);
   if (error) return <div>Error: {error.message}</div>
+  // console.log(data)
 
   return (
     <div className="wrapper">
@@ -18,45 +53,49 @@ export default function DisplayUsers() {
           Contact list of displaced people all over the world due to Flood in 640BC
         </h5>
       </div>
+      <button onClick={handleClick} className="button">
+        {activeUser ? "Get another User" : "Get user"}
+      </button>
       <ErrorBoundary>
         <div className="cardFlex">
           {
-            data.map((user, id) => (
-              <div className="cardWrap" key={id}>
-                <div className="bar"></div>
-                <div className="card">
-                  <div className="cardImage">
-                    <img src={ user.picture.thumbnail } alt="Random user" />
+            loading ? (<p>Loading... please wait</p>) : (
+              data.map((user, id) => {
+                return (
+                  <div className="cardWrap" key={id}>
+                    <div className="bar"></div>
+                    <div className="card">
+                      <img src={user.picture.medium} alt="Random user" className="cardImage" />
+                      <div className="cardTexts">
+                        <p className="text">
+                          <strong>Name: </strong>
+                          {`${user.name.title} ${user.name.first} ${user.name.last}`}
+                        </p>
+                        <p className="text">
+                          <strong>Gender: </strong>
+                          {user.gender}
+                        </p>
+                        <p className="text">
+                          <strong>Email: </strong>
+                          {user.email}
+                        </p>
+                        <p className="text">
+                          <strong>State: </strong>
+                          {user.location.state}
+                        </p>
+                        <p className="text">
+                          <strong>Country: </strong>
+                          {user.location.country}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="cardTexts">
-                    <p className="text">
-                      <strong>Name: </strong>
-                      {user.name}
-                    </p>
-                    <p className="text">
-                      <strong>Gender: </strong>
-                      {user.gender}
-                    </p>
-                    <p className="text">
-                      <strong>Email: </strong>
-                      {user.email}
-                    </p>
-                    <p className="text">
-                      <strong>State: </strong>
-                      {user.state}
-                    </p>
-                    <p className="text">
-                      <strong>Country: </strong>
-                      {user.country}
-                    </p>
-                  </div>
-                </div>
-              </div>
-         ))
-        }
+                )
+              })
+            )
+          }
         </div>
       </ErrorBoundary>
-
     </div>
   );
 }

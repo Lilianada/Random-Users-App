@@ -1,16 +1,15 @@
 .wrapper {
-  display: grid;
-  grid-template-columns: 100%;
-  place-items: center;
-  align-items: flex-start;
-  height: 100vh;
-  width: 100vw;
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
 }
 
 .titleText {
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 500;
-  text-decoration: underline;
+  margin-top: 2rem;
 }
 
 .cardFlex {
@@ -21,7 +20,7 @@
 }
 
 .cardWrap {
-  width: 18rem;
+  width: 20rem;
   height: 13rem;
   display: flex;
   background: #fff;
@@ -56,4 +55,23 @@
 .text {
   font-size: 14px;
   line-height: 1.2rem;
+}
+
+.button{
+  width: 10rem;
+  height: 3rem;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+  background: #dedddd;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all .5s;
+  margin-top: 2rem;
+}
+
+.button:hover{
+ transform: scale(.95, .95);
 }

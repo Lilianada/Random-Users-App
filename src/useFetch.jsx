@@ -8,7 +8,8 @@ export default function useFetch(url) {
 
   useEffect (() => {
     axios.get(url).then((response) => {
-      setData(response.data);
+      setData(response.data.results);
+      console.log(response.data.results)
       setLoading(true);
     }).catch((err) => {
       setError(err);
@@ -17,6 +18,5 @@ export default function useFetch(url) {
         setLoading(false);
     })
   }, [url]);
-  console.log(data.results)
    return { data, error, loading };
 }
