@@ -3,8 +3,11 @@ import './Header.css';
 
 export default function Header() {
   return (
-    <div className="header">
+    <header className="header">
         <h3>Users App</h3>
-    </div>
+      <nav className="navigation">
+        
+      </nav>
+    </header>
   );
 }
