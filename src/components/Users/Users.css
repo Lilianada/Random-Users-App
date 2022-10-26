@@ -2,6 +2,7 @@
   font-size: 22px;
   font-weight: 500;
   margin-top: 2rem;
+  text-align: center;
 }
 
 .cardFlex {
@@ -61,9 +62,10 @@
   border-radius: 10px;
   cursor: pointer;
   transition: all .5s;
-  margin-top: 2rem;
+  margin: 2rem auto;
 }
 
 .button:hover{
  transform: scale(.95, .95);
 }
+
