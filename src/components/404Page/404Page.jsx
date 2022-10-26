@@ -5,9 +5,11 @@ import ErrorImage from "../../assets/404Illustration.png";
 export default function ErrorPage() {
   return (
     <div className="wrapper">
-        <img src={ErrorImage} alt="Error Illustration" />
-        <h3>Sorry something went wrong!</h3>
-        <p>Go back to the previous page</p>
+        <img src={ErrorImage} alt="Error Illustration" className="errorImage" />
+        <div className="errorBody">
+            <h3 className="errorHead">Sorry something went wrong!</h3>
+            <p className="errorText">Go back to the previous page</p>
+        </div>
     </div>
   );
 }
