@@ -25,32 +25,3 @@ export default function Home() {
 
   );
 }
-
-export  function Help() {
-  return (
-    <section className="wrapper">
-        <Header/>
-        <h5 className="title">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            <br/> Help asperiores ullam adipisci?
-        </h5>
-        <p className="pText">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, eius dignissimos incidunt iure eos facere explicabo? Odio, illum vel ea quod sit, assumenda autem quis consequuntur alias laboriosam eos, vero rerum nisi maiores! Hic dolorem natus debitis! Quasi temporibus commodi eveniet dicta.
-            <br/>
-            Help ipsum dolor sit amet consectetur adipisicing elit. Asperiores, eius dignissimos incidunt iure eos facere explicabo? Odio, illum vel ea quod sit, assumenda autem quis consequuntur alias laboriosam eos, vero rerum nisi maiores! Hic dolorem natus debitis! Quasi temporibus commodi totam atque ratione, odit minima deserunt numquam facilis eveniet dicta.
-            <br/>
-            HeLP ipsum dolor sit amet consectetur adipisicing elit. Asperiores, eius dignissimos incidunt iure eos facere explicabo? Odio, illum vel ea quod sit, assumenda autem quis consequuntur alias laboriosam eos, vero rerum nisi maiores! Hic dolorem natus debitis! Quasi temporibus commodi totam atque ratione, odit minima deserunt numquam facilis eveniet dicta.
-            <br/>
-            <br/>
-        </p>
-        <ul className="list">
-            <li>Lorem ipsum dolor sit amet consectetur.</li>
-            <li>Lorem ipsum dolor sit amet consectetur.</li>
-            <li>Lorem ipsum dolor sit amet consectetur.</li>
-            <li>Lorem ipsum dolor sit amet consectetur.</li>
-            <li>Lorem ipsum dolor sit amet consectetur.</li>
-        </ul>
-    </section>
-
-  );
-}

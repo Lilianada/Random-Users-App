@@ -1,9 +1,10 @@
 import './App.css';
 import React from 'react';
 import DisplayUsers from './components/Users/Users';
-import Home, { Help } from './components/Home/Home';
+import Home from './components/Home/Home';
 import ErrorPage from './components/404Page/404Page';
 import { Route, Routes } from 'react-router-dom';
+import Help from './components/Help/Help';
 
 function App() {
   return (

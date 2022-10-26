@@ -22,9 +22,9 @@ export default function DisplayUsers() {
       setError(err);
       setLoading(true);
     }).finally(() => {
-        setLoading(false);
-        setActiveUser(true);
-      })
+      setLoading(false);
+      setActiveUser(true);
+    })
   }
   if (error) return <div>Error: {error.message}</div>
   // console.log(data)
@@ -80,6 +80,10 @@ export default function DisplayUsers() {
           }
         </div>
       </ErrorBoundary>
+      <div className="cardButtons">
+        <button className="next"> Next </button>
+        <button className="prev"> Prev </button>
+      </div>
     </div>
   );
 }

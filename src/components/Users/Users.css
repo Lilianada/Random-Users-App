@@ -1,5 +1,5 @@
 .titleText {
-  font-size: 22px;
+  font-size: var(--twentyTwo);
   font-weight: 500;
   margin-top: 2rem;
   text-align: center;
@@ -46,26 +46,66 @@
 }
 
 .text {
-  font-size: 14px;
+  font-size: var(--fourteen);
   line-height: 1.2rem;
 }
 
-.button{
-  width: 10rem;
-  height: 3rem;
-  font-size: 16px;
+.button {
+  width: fit-content;
+  padding: .5rem 1rem;
+  text-align: center;
+  font-size: var(--sixteen);
   font-weight: 500;
   color: #000;
   background: #dedddd;
   outline: none;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: all .5s;
+  transition: all 0.5s;
   margin: 2rem auto;
 }
 
-.button:hover{
- transform: scale(.95, .95);
+.button:hover {
+  transform: scale(0.95, 0.95);
 }
 
+.cardButtons {
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem;
+}
+
+.next {
+  width: 7rem;
+  height: 1.75rem;
+  text-align: center;
+  font-size: var(--sixteen);
+  background: #c5e9d3;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  transition: all 0.5s;
+}
+
+.next:hover {
+  transform: scale(0.95, 0.95);
+  background: #7deaa7;
+}
+
+.prev {
+  width: 7rem;
+font-size: var(--sixteen);
+  height: 1.75rem;
+  text-align: center;
+  background: #f26a6a4d;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  transition: all 0.5s;
+}
+
+.prev:hover {
+  transform: scale(0.95, 0.95);
+  background: #fb404080;
+}
