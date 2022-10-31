@@ -1,3 +1,6 @@
+.wrapper{ 
+  height: 100%;
+}
 .titleText {
   font-size: var(--twentyTwo);
   font-weight: 500;
@@ -8,7 +11,7 @@
 .cardFlex {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   margin: 2rem;
 }
 
@@ -73,7 +76,7 @@
 .cardButtons {
   display: flex;
   justify-content: space-around;
-  margin: 1rem;
+  margin: 1rem 2rem 2rem;
 }
 
 .next {

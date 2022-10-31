@@ -1,7 +1,7 @@
 import React, { useReducer } from "react";
-import ErrorPage from "../404Page/404Page";
+import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 import Header from "../Header/Header";
-import '../Home/Home.css';
+import './Help.css';
 
 const initialState = 0;
 const reducer = (count, action) => {
@@ -10,8 +10,7 @@ const reducer = (count, action) => {
             return count + 1;
         case 'minus':
             return count - 1;
-        case 'reset':
-            return 0;
+        
         default:
             throw new Error("Something went wrong")
     }
@@ -37,11 +36,13 @@ export default function Help() {
                 <li>Lorem ipsum dolor sit amet consectetur.</li>
                 <li>Lorem ipsum dolor sit amet consectetur.</li>
             </ul>
-            <div className="counter">
-                <button className="counterButton" onClick={() => dispatch("add")}>+</button>
-                <p className="count"> {count} </p>
-                <button className="counterButton" onClick={() => dispatch("minus")}>-</button>
-            </div>
+            <ErrorBoundary>
+                <div className="counter">
+                    <button className="counterButton" onClick={() => dispatch("add")}>+</button>
+                    <p className="count"> {count} </p>
+                    <button className="counterButton" onClick={() => dispatch("minus")}>-</button>
+                </div>
+            </ErrorBoundary>
         </section>
 
     );

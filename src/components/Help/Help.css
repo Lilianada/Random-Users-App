@@ -1,0 +1,45 @@
+.title{
+    margin-top: 2rem;
+    font-weight: 500;
+   margin-left: 2rem;
+   margin-right: 2rem;
+    text-align: center;
+}
+
+.pText{
+    font-size: var(--fourteen);
+    line-height: 1.2rem;
+    padding: 2rem 2rem 1rem;
+    text-align: left;
+}
+
+.list{
+    margin: 0 2rem;
+}
+
+
+.counter{
+    margin: 2rem;
+    display: flex;
+}
+
+.count{
+    padding: 0 1rem;
+    font-size: var(--eighteen);
+}
+
+.counterButton{
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    outline: none;
+    background: #dedddd;
+    border-radius: 5px;
+    font-size: var(--eighteen);
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.counterButton:hover{
+    transform: scale(0.95, 0.95);
+}

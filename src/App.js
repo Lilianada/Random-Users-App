@@ -12,8 +12,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/help" element={<Help />} />
-        <Route path="/404" element={<ErrorPage />} />
+        <Route path="*" element={<ErrorPage />} />
         <Route path="/users" element={<DisplayUsers />} />
+
       </Routes>
     </div>
   );

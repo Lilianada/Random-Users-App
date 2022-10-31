@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState } from "react";
 import "./Users.css";
 import Header from "../Header/Header";
 import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
@@ -6,26 +6,42 @@ import axios from "axios";
 
 export default function DisplayUsers() {
   const [activeUser, setActiveUser] = useState(false);
-  const [activeLink, setActiveLink] = useState(0);
+  // const [activeLink, setActiveLink] = useState(0);
   const [data, setData] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+	const [page, setPage] = useState(3);
 
-  const url = "https://randomuser.me/api/"
+		const fetchData = () => {
+			const url = `https://randomuser.me/api/?page=${page}&results=10&seed=abc1`;
+		console.log(url)
+    	axios.get(url).then((response) => {
+	      setData(response.data.results);
+	      console.log(response.data.results)
+	      setLoading(true);
+	    }).catch((err) => {
+	      setError(err);
+	      setLoading(true);
+	    }).finally(() => {
+	      setLoading(false);
+	      setActiveUser(true);
+	    })
+		}
+	
+	useEffect (() => {
+		fetchData()
+	}, [])
 
-  const handleClick = () => {
-    axios.get(url).then((response) => {
-      setData(response.data.results);
-      console.log(response.data.results)
-      setLoading(true);
-    }).catch((err) => {
-      setError(err);
-      setLoading(true);
-    }).finally(() => {
-      setLoading(false);
-      setActiveUser(true);
-    })
-  }
+	const nextPage = () => {
+		setPage(page => page + 1);
+		fetchData();
+	}
+
+	const prevPage = () => {
+		setPage(page => page - 1);
+		fetchData();
+	}
+	
   if (error) return <div>Error: {error.message}</div>
   // console.log(data)
 
@@ -37,9 +53,6 @@ export default function DisplayUsers() {
           Contact list of displaced people all over the world due to Flood in 640BC
         </h5>
       </div>
-      <button onClick={handleClick} className="button">
-        {activeUser ? "Get another User" : "Get user"}
-      </button>
       <ErrorBoundary>
         <div className="cardFlex">
           {
@@ -81,8 +94,8 @@ export default function DisplayUsers() {
         </div>
       </ErrorBoundary>
       <div className="cardButtons">
-        <button className="next"> Next </button>
-        <button className="prev"> Prev </button>
+        <button className="prev" onClick={prevPage}> Prev </button>
+        <button className="next" onClick={nextPage}> Next </button>
       </div>
     </div>
   );
